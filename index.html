@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SakuGim - Pencatat Pengeluaran Gamified</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts & Chart.js -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header & Gamification Card -->
+    <header class="profile-card">
+      <div class="profile-info">
+        <div class="avatar" id="avatar-icon">🎮</div>
+        <div>
+          <h2 id="user-title">Pemula Saku</h2>
+          <p>Level <span id="user-level">1</span> • XP: <span id="user-xp">0</span> / <span id="next-xp">100</span></p>
+        </div>
+      </div>
+      <div class="xp-bar-bg">
+        <div class="xp-bar-fill" id="xp-bar"></div>
+      </div>
+    </header>
+
+    <!-- Ringkasan Keuangan -->
+    <section class="summary-card">
+      <div class="summary-item">
+        <span>Sisa Anggaran</span>
+        <h3 id="total-balance">Rp 0</h3>
+      </div>
+      <div class="summary-item">
+        <span>Total Pengeluaran</span>
+        <h3 id="total-expense">Rp 0</h3>
+      </div>
+    </section>
+
+    <!-- Form Input Pengeluaran -->
+    <section class="form-card">
+      <h3>+ Catat Pengeluaran</h3>
+      <form id="expense-form">
+        <input type="text" id="expense-name" placeholder="Contoh: Beli Kopi / Kuota" required>
+        <input type="number" id="expense-amount" placeholder="Jumlah (Rp)" required>
+        <select id="expense-category">
+          <option value="Jajan">☕ Jajan</option>
+          <option value="Kuota">📶 Kuota & Internet</option>
+          <option value="Nongkrong">🍕 Nongkrong</option>
+          <option value="Transport">🛵 Transport</option>
+          <option value="Lainnya">📦 Lainnya</option>
+        </select>
+        <button type="submit" class="btn-submit">Catat (+20 XP)</button>
+      </form>
+    </section>
+
+    <!-- Visualisasi Grafik -->
+    <section class="chart-card">
+      <h3>Statistik Pengeluaran</h3>
+      <canvas id="expenseChart"></canvas>
+    </section>
+
+    <!-- Riwayat Pengeluaran -->
+    <section class="history-card">
+      <h3>Riwayat Transaksi</h3>
+      <ul id="expense-list" class="expense-list">
+        <!-- Data akan dimuat melalui JavaScript -->
+      </ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
